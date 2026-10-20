@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>HomeGenius Commissioning Sheet</title>
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0f766e"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<style id="css">
+*{box-sizing:border-box}body{margin:0;background:#e9edf2;font-family:Arial,Helvetica,sans-serif;color:#1b2433}
+.bar{position:sticky;top:0;z-index:5;display:flex;gap:8px;flex-wrap:wrap;padding:10px 14px;background:#1f2937;align-items:center}
+.bar button{font-size:16px;padding:12px 16px;border:0;border-radius:10px;background:#2f6fed;color:#fff;font-weight:700}
+.bar .g{background:#374151}.bar .s{background:#0f766e}.bar span{color:#cbd5e1;font-size:13px;margin-left:auto}
+#sheet{background:#fff;max-width:1100px;margin:14px auto;padding:26px 30px;border-radius:6px}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.lg{height:70px;width:auto}
+h1{text-align:center;font-size:20px;letter-spacing:.06em;margin:14px 0}
+.cols,.sg{display:grid;grid-template-columns:1fr 1fr;gap:4px 28px}
+.f{display:flex;align-items:center;gap:8px;font-size:14px;margin:7px 0}.f label{white-space:nowrap;font-weight:700}
+input[type=text],input:not([type]),input[type=tel],input[type=email],input[type=date],textarea{font:inherit;font-size:16px;color:#1b2433;background:#fff;width:100%;min-width:0;border:0;border-bottom:1px dotted #8a94a6;padding:9px 4px;border-radius:0}
+input:focus,textarea:focus{outline:0;background:#eef3ff}textarea{border:1px solid #8a94a6;border-radius:4px;padding:8px;min-height:64px}
+table{width:100%;border-collapse:collapse;table-layout:fixed;margin-top:10px}th{font-size:12px;background:#f1f3f6}
+th,td{border:1px solid #8a94a6;padding:0}td input{border:0;padding:11px 6px;min-height:44px}.n{width:38px;text-align:center;font-size:13px}
+.sw{display:flex;align-items:center}.sw input{flex:1}.cam{border:0;background:#0f766e;color:#fff;font-size:18px;width:42px;height:44px}
+.tc{width:64px;text-align:center}.tc input{width:28px;height:28px;min-height:0}
+.add,.clr{font-size:14px;padding:9px 14px;border:1px solid #0f766e;color:#0f766e;background:#fff;border-radius:8px;margin-top:6px}
+.pad{border:1px solid #8a94a6;border-radius:4px;height:110px;width:100%;touch-action:none;background:#fff;display:block}.sgimg{height:110px;max-width:100%}
+.ft{text-align:center;font-size:12px;margin-top:26px;line-height:1.6}
+.ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);display:none;z-index:9;padding:16px}.ov.on{display:block}
+.box{background:#fff;max-width:560px;margin:30px auto;border-radius:12px;padding:16px;max-height:84%;overflow:auto}
+.it2{display:flex;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid #e5e7eb}.it2 b{flex:1;font-size:15px}.it2 small{color:#6b7280}
+.it2 button,.box .clr{font-size:14px;padding:8px 12px;border-radius:8px;border:1px solid #0f766e;background:#fff;color:#0f766e}.it2 .d{border-color:#e5484d;color:#e5484d}
+#scan{background:#000;padding:0}#scan video{width:100%;height:60%;object-fit:cover;display:block}
+#scan .p{position:absolute;left:0;right:0;bottom:0;top:60%;background:#111827;color:#fff;padding:12px 16px;overflow:auto}
+#scan input{background:#fff;border:0;border-radius:8px;padding:10px;margin:6px 0;width:100%}
+#scan button{font-size:16px;padding:12px 18px;border:0;border-radius:10px;background:#0f766e;color:#fff;font-weight:700;margin-right:8px}
+#scan button.r{background:#b91c1c}#rawt{font-size:12px;color:#9ca3af;word-break:break-all}#stt{font-size:16px;margin:6px 0;min-height:22px}
+@media(max-width:700px){.cols,.sg{grid-template-columns:1fr}#sheet{padding:16px}}
+@media print{.bar,.add,.clr,.cam,.ov,.noprint{display:none!important}body{background:#fff}#sheet{margin:0;max-width:none;padding:0}input,textarea{font-size:12px}}
+</style></head><body>
+<div class="bar noprint"><button id="be">Save &amp; Email</button><button class="s" id="bm">Scan devices</button><button class="g" id="bn">New</button><button class="g" id="bs">Save</button><button class="g" id="bl">Saved sheets</button><button class="g" id="bd">Download file</button><button class="g" id="bp">Print / PDF</button><button class="g" id="bt">Settings</button><span id="st"></span></div>
+<div id="sheet">
+<div class="hd"><img class="lg" alt="HomeGenius" src="data:image/png;base64,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"></div>
+<h1>COMMISSIONING SHEET</h1>
+<div class="cols"><div>
+<div class="f"><label>Client Name :</label><input data-k="cn"></div><div class="f"><label>Site Address :</label><input data-k="sa"></div>
+<div class="f"><label>Contact Person :</label><input data-k="cp"></div><div class="f"><label>Telephone Number :</label><input data-k="ct" type="tel"></div><div class="f"><label>Email :</label><input data-k="ce" type="email"></div></div>
+<div><div class="f"><label>Supply Date :</label><input data-k="sd" type="date"></div><div class="f"><label>Installed by :</label><input data-k="ib"></div>
+<div class="f"><label>Commissioning Date :</label><input data-k="cd" type="date"></div></div></div>
+<div class="f" style="margin-top:14px"><label>System Supplied :</label><input data-k="sys"></div>
+<table><thead><tr><th class="n">#</th><th>ITEM</th><th style="width:30%">SERIAL NO.</th><th>LOCATION</th><th class="tc">TEST</th><th>REMARKS</th></tr></thead><tbody id="eq"></tbody></table>
+<button class="add noprint" id="ar">+ Add row</button>
+<div class="f" style="margin-top:16px"><label>Technical Comments :</label></div><textarea data-k="tcm"></textarea>
+<div class="f"><label>Customer Remarks :</label></div><textarea data-k="crm"></textarea>
+<div class="sg"><div><div class="f"><label>Client Signature :</label></div><canvas class="pad" data-s="cs"></canvas><button class="clr noprint" data-c="cs">Clear</button>
+<div class="f"><label>Name :</label><input data-k="cln"></div><div class="f"><label>Date :</label><input data-k="cld" type="date"></div></div>
+<div><div class="f"><label>Technician Signature :</label></div><canvas class="pad" data-s="ts"></canvas><button class="clr noprint" data-c="ts">Clear</button>
+<div class="f"><label>Name :</label><input data-k="tn"></div><div class="f"><label>Date :</label><input data-k="td" type="date"></div></div></div>
+<div class="ft"><b>HomeGenius Ltd</b> - BRN C24212791<br>48, Rue Des Marguerites, Montreal 2, Coromandel, Mauritius - Tel : +230 5721 4111 - Email : sav.homegenius@gmail.com</div>
+</div>
+<datalist id="devs"><option value="Hub"><option value="Hub 2"><option value="Hub 2 Plus"><option value="ReX"><option value="ReX 2"><option value="DoorProtect"><option value="DoorProtect Plus"><option value="GlassProtect"><option value="MotionProtect"><option value="MotionProtect Plus"><option value="CombiProtect"><option value="MotionProtect Outdoor"><option value="Hood (MPO)"><option value="MotionCam Outdoor"><option value="Curtain Outdoor"><option value="DualCurtain Outdoor"><option value="Curtain Outdoor Mini"><option value="CurtainCam Outdoor HighMount (PhOD)"><option value="MotionProtect Curtain"><option value="MotionCam"><option value="Keypad"><option value="Keypad Plus"><option value="Keypad Touchscreen"><option value="Pass"><option value="Tag"><option value="Button"><option value="DoubleButton"><option value="Holder for Button/DoubleButton"><option value="SpaceControl"><option value="StreetSiren"><option value="HomeSiren"><option value="StreetSiren DoubleDeck"><option value="Brandplate for StreetSiren DoubleDeck"><option value="Transmitter"><option value="MultiTransmitter"><option value="12V PSU for Hub/Hub Plus/ReX"><option value="12-24V PSU for Hub 2 / Hub 2 Plus / ReX 2"><option value="6V PSU for Hub 2"><option value="DoorBell"><option value="TurretCam (5 Mp/4 mm)"><option value="BulletCam (5 Mp/4 mm)"><option value="DomeCam Mini (5 Mp/2.8 mm)"><option value="DomeCam Mini (5 Mp/4 mm)"><option value="BulletCam HL (5 Mp/4 mm)"><option value="JunctionBox (118) ASP"><option value="NVR (8ch)"><option value="NVR (16ch)"><option value="FireProtect"><option value="FireProtect 2 RB (Heat/Smoke/CO)"><option value="Manual Call Point"><option value="LeaksProtect"><option value="WaterStop [1/2]"><option value="WaterStop [1]"><option value="WaterStop [3/4]"><option value="WallSwitch"><option value="Relay"><option value="DIN Holder"><option value="LifeQuality"><option value="Socket EU"><option value="LightCore (1-gang) [55]"><option value="LightCore (2-gang) [55]"><option value="LightCore (2-way) [55]"><option value="LightCore (2-gang/2-way)"><option value="Frame (2 seats) [55]"><option value="Frame (3 seats) [55]"><option value="Frame (4 seats) [55]"><option value="Frame (5 seats) [55]"><option value="CenterButton (1-gang/2-way) [55]"><option value="CenterButton (2-gang) [55]"><option value="SideButton (1-gang/2-way) [55]"><option value="SideButton (2-gang) [55]"><option value="SoloButton (1-gang/2-way) [55]"><option value="SoloButton (2-gang) [55]"><option value="OutletCore (smart) [type F] [55]"><option value="SoloCover (smart) [type F] [55]"><option value="SideCover (smart) [type F] [55]"><option value="CenterCover (smart) [type F] [55]"><option value="SurfaceBox"></datalist>
+<div class="ov" id="ls"><div class="box"><div style="display:flex;justify-content:space-between"><b>Saved sheets</b><button class="clr" id="lc">Close</button></div><div id="li"></div></div></div>
+<div class="ov" id="cf"><div class="box"><b>Settings</b><p style="font-size:13px;margin:10px 0 2px">Web app URL (ends with /exec)</p><input id="cu" style="border:1px solid #8a94a6;border-radius:6px"><p style="font-size:13px;margin:10px 0 2px">Secret key</p><input id="ck" style="border:1px solid #8a94a6;border-radius:6px">
+<p style="font-size:13px;margin:10px 0 2px">Serial pattern (optional): a regular expression; the first bracket is used. Leave empty to use the full QR text.</p><input id="cr" style="border:1px solid #8a94a6;border-radius:6px" placeholder="e.g. ([0-9A-Fa-f]{8})">
+<p style="margin-top:14px"><button class="clr" id="cs1" style="background:#0f766e;color:#fff">Save</button> <button class="clr" id="cx">Cancel</button></p></div></div>
+<div class="ov" id="scan"><video id="vid" playsinline muted></video><div class="p"><div id="stt">Point the camera at the Ajax QR code</div><div id="rawt"></div>
+<input id="stype" list="devs" placeholder="Device type for the next scans (optional)"><div style="margin-top:8px"><button id="sdn">Done</button><button id="stor" style="display:none">Torch</button><button class="r" id="scx">Cancel</button></div></div></div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+function msg(t){$('#st').textContent=t;clearTimeout(msg.t);msg.t=setTimeout(()=>$('#st').textContent='',6000)}
+const today=()=>new Date().toISOString().slice(0,10);
+function addRow(v){const b=$('#eq'),tr=b.insertRow();
+ tr.innerHTML='<td class="n"></td><td><input class="it" list="devs"></td><td><div class="sw"><input class="sr"><button class="cam noprint" title="Scan QR">\ud83d\udcf7</button></div></td><td><input class="lc"></td><td class="tc"><input type="checkbox" class="ts"></td><td><input class="rm"></td>';
+ tr.querySelector('.cam').onclick=()=>openScan('one',tr);num();
+ if(v){tr.querySelector('.it').value=v[0]||'';tr.querySelector('.sr').value=v[1]||'';tr.querySelector('.lc').value=v[2]||'';tr.querySelector('.ts').checked=!!v[3];tr.querySelector('.rm').value=v[4]||''}return tr}
+function num(){[...$('#eq').rows].forEach((r,i)=>r.cells[0].textContent=i+1)}
+function clr(c){c.getContext('2d').clearRect(0,0,c.width,c.height);delete c.dataset.d}
+function reset(){$$('[data-k]').forEach(i=>i.value='');$('#eq').innerHTML='';for(let i=0;i<16;i++)addRow();
+ $('[data-k=sys]').value='Ajax Security System';$('[data-k=ib]').value='HomeGenius Ltd';['sd','cd','cld','td'].forEach(k=>$('[data-k='+k+']').value=today());$$('canvas').forEach(clr);cur=null}
+const rowsOf=()=>[...$('#eq').rows].map(r=>[r.querySelector('.it').value,r.querySelector('.sr').value,r.querySelector('.lc').value,r.querySelector('.ts').checked?1:0,r.querySelector('.rm').value]);
+function collect(){const f={};$$('[data-k]').forEach(i=>f[i.dataset.k]=i.value);const s={};$$('canvas').forEach(c=>s[c.dataset.s]=c.dataset.d?c.toDataURL('image/png'):'');return{f,rows:rowsOf(),s}}
+function load(d){reset();$$('[data-k]').forEach(i=>{if(d.f[i.dataset.k]!==undefined)i.value=d.f[i.dataset.k]});$('#eq').innerHTML='';d.rows.forEach(r=>addRow(r));
+ $$('canvas').forEach(c=>{const u=d.s[c.dataset.s];if(u){const im=new Image();im.onload=()=>{c.getContext('2d').drawImage(im,0,0,c.width,c.height);c.dataset.d=1};im.src=u}})}
+const LK='hg_comm',CFG='hg_ccfg';let cur=null;
+const all=()=>{try{return JSON.parse(localStorage.getItem(LK)||'[]')}catch(e){return[]}};
+const put=a=>{try{localStorage.setItem(LK,JSON.stringify(a));return true}catch(e){msg('Storage full / unavailable');return false}};
+const cfg=()=>{try{return JSON.parse(localStorage.getItem(CFG)||'{}')}catch(e){return{}}};
+function draft(){try{localStorage.setItem('hg_comm_draft',JSON.stringify({cur,d:collect()}))}catch(e){}}
+function store(want){const d=collect(),a=all(),t=(d.f.cn||'No name')+' \u00b7 '+(d.f.cd||'');if(!cur)cur=Date.now();
+ const i=a.findIndex(x=>x.id==cur),rec={id:cur,t,d,ts:Date.now(),sent:false,want:!!want};if(i>=0)a[i]=rec;else a.unshift(rec);return put(a)?rec:null}
+async function send(rec){const c=cfg();if(!c.url||!c.key){msg('Tap Settings and enter the web app URL and key first');return false}
+ try{const r=await fetch(c.url,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({type:'commissioning',key:c.key,id:'c'+rec.id+'_'+rec.ts,f:rec.d.f,rows:rec.d.rows,s:rec.d.s})});
+  const j=await r.json();if(j&&j.ok){const a=all(),i=a.findIndex(x=>x.id==rec.id&&x.ts==rec.ts);if(i>=0){a[i].sent=true;put(a)}return true}
+  msg('Server refused: '+((j&&j.error)||'check the key'));return false}catch(e){return false}}
+$('#be').onclick=async()=>{if(!$('[data-k=cn]').value){msg('Enter the client name first');return}const rec=store(true);if(!rec)return;msg('Sending\u2026');
+ if(await send(rec)){msg('Saved & emailed \u2713');alert('Commissioning sheet saved and emailed')}else msg('Saved on tablet \u2013 not sent yet (Saved sheets > Send)')};
+$('#bs').onclick=()=>{if(store(false))msg('Saved \u2713')};
+$('#bn').onclick=()=>{if(confirm('Start a new blank commissioning sheet?'))reset()};
+$('#ar').onclick=()=>addRow();
+function showList(){const a=all();$('#li').innerHTML=a.length?'':'<p>Nothing saved yet.</p>';a.forEach(x=>{const e=document.createElement('div');e.className='it2';
+ e.innerHTML='<b></b><small></small><button>Open</button><button>Send</button><button class="d">Delete</button>';e.querySelector('b').textContent=x.t;e.querySelector('small').textContent=x.sent?'\u2713 sent':'not sent';const bt=e.querySelectorAll('button');
+ bt[0].onclick=()=>{load(x.d);cur=x.id;$('#ls').classList.remove('on')};bt[1].onclick=async()=>{msg('Sending\u2026');const ok=await send(x);msg(ok?'Emailed \u2713':'Not sent');showList()};
+ bt[2].onclick=()=>{if(confirm('Delete this sheet?')){put(all().filter(y=>y.id!=x.id));showList()}};$('#li').appendChild(e)});$('#ls').classList.add('on')}
+$('#bl').onclick=showList;$('#lc').onclick=()=>$('#ls').classList.remove('on');$('#bp').onclick=()=>window.print();
+$('#bt').onclick=()=>{const c=cfg();$('#cu').value=c.url||'';$('#ck').value=c.key||'';$('#cr').value=c.rx||'';$('#cf').classList.add('on')};
+$('#cx').onclick=()=>$('#cf').classList.remove('on');
+$('#cs1').onclick=()=>{try{localStorage.setItem(CFG,JSON.stringify({url:$('#cu').value.trim(),key:$('#ck').value.trim(),rx:$('#cr').value.trim()}))}catch(e){}$('#cf').classList.remove('on');msg('Settings saved')};
+$('#bd').onclick=()=>{const c=$('#sheet').cloneNode(true);const si=$$('#sheet input'),sc=$$('#sheet canvas'),st=$$('#sheet textarea');
+ c.querySelectorAll('input').forEach((i,k)=>{if(i.type==='checkbox'){if(si[k].checked)i.setAttribute('checked','')}else i.setAttribute('value',si[k].value)});
+ c.querySelectorAll('textarea').forEach((t,k)=>t.textContent=st[k].value);
+ c.querySelectorAll('canvas').forEach((x,k)=>{if(sc[k].dataset.d){const im=document.createElement('img');im.src=sc[k].toDataURL();im.className='sgimg';x.replaceWith(im)}else x.remove()});
+ c.querySelectorAll('.add,.clr,.cam').forEach(x=>x.remove());
+ const h='<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Commissioning</title><style>'+$('#css').textContent+'</style></head><body>'+c.outerHTML+'</body></html>';
+ const n=($('[data-k=cn]').value||'sheet').replace(/[^\w\-]+/g,'_'),lk=document.createElement('a');lk.href=URL.createObjectURL(new Blob([h],{type:'text/html'}));lk.download='Commissioning_'+n+'_'+today()+'.html';document.body.appendChild(lk);lk.click();lk.remove();setTimeout(()=>URL.revokeObjectURL(lk.href),5000)};
+/* ===== QR scanning ===== */
+let stream=null,det=null,mode='one',target=null,lastCode='',lastT=0,loop=0,cnt=0;
+function extract(raw){const c=cfg();let s=String(raw).trim();
+ if(c.rx){try{const m=s.match(new RegExp(c.rx,'i'));if(m)return(m[1]||m[0]).trim()}catch(e){}}
+ try{const u=new URL(s);for(const k of['id','serial','sn','device','deviceid']){const v=u.searchParams.get(k);if(v)return v.trim()}const seg=u.pathname.split('/').filter(Boolean).pop();if(seg)return seg}catch(e){}
+ return s}
+function beep(){try{const a=new (window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator();o.frequency.value=880;o.connect(a.destination);o.start();setTimeout(()=>{o.stop();a.close()},120)}catch(e){}if(navigator.vibrate)navigator.vibrate(80)}
+async function openScan(m,tr){
+ if(!('BarcodeDetector' in window)){alert('QR scanning is not supported by this browser. Please use an updated Chrome, or type the serial number.');return}
+ try{det=new BarcodeDetector({formats:['qr_code','data_matrix','code_128','code_39','ean_13']})}catch(e){det=new BarcodeDetector()}
+ mode=m;target=tr;cnt=0;lastCode='';
+ try{stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:720}},audio:false})}catch(e){alert('Camera not available: '+e.message);return}
+ const v=$('#vid');v.srcObject=stream;try{await v.play()}catch(e){}
+ $('#stype').style.display=m==='multi'?'block':'none';$('#sdn').textContent=m==='multi'?'Done':'Stop';$('#stt').textContent=m==='multi'?'Scan each device in turn':'Point the camera at the Ajax QR code';$('#rawt').textContent='';
+ const tk=stream.getVideoTracks()[0];let torch=false;try{torch=!!(tk.getCapabilities&&tk.getCapabilities().torch)}catch(e){}
+ $('#stor').style.display=torch?'inline-block':'none';$('#stor').onclick=()=>{$('#stor').dataset.on=$('#stor').dataset.on?'':'1';tk.applyConstraints({advanced:[{torch:!!$('#stor').dataset.on}]}).catch(()=>{})};
+ $('#scan').classList.add('on');tick()}
+function stopScan(){clearTimeout(loop);if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;$('#vid').srcObject=null;$('#scan').classList.remove('on')}
+async function tick(){if(!stream)return;try{const r=await det.detect($('#vid'));if(r&&r.length)onCode(r[0].rawValue)}catch(e){}loop=setTimeout(tick,200)}
+function onCode(raw){const now=Date.now();if(raw===lastCode&&now-lastT<3000){lastT=now;return}lastCode=raw;lastT=now;
+ const sn=extract(raw);$('#rawt').textContent='Scanned text: '+raw;
+ const dup=$$('.sr').find(i=>i.value.trim().toLowerCase()===sn.toLowerCase()&&(mode==='multi'||i!==target.querySelector('.sr')));
+ if(dup){beep();const r=dup.closest('tr');$('#stt').textContent='Already in row '+r.cells[0].textContent+': '+sn;return}
+ let tr=target;
+ if(mode==='multi'){tr=[...$('#eq').rows].find(r=>!r.querySelector('.sr').value.trim())||addRow();const ty=$('#stype').value.trim();if(ty&&!tr.querySelector('.it').value)tr.querySelector('.it').value=ty;cnt++}
+ tr.querySelector('.sr').value=sn;beep();draft();
+ $('#stt').textContent='\u2713 '+sn+' \u2192 row '+tr.cells[0].textContent+(mode==='multi'?'  ('+cnt+' scanned)':'');
+ if(mode==='one'){setTimeout(stopScan,500)}}
+$('#bm').onclick=()=>openScan('multi',null);$('#sdn').onclick=stopScan;$('#scx').onclick=stopScan;
+/* ===== signatures, draft, offline ===== */
+$$('canvas').forEach(c=>{c.width=900;c.height=220;const x=c.getContext('2d');x.lineWidth=4;x.lineCap='round';x.strokeStyle='#111';let on=false;
+ const p=e=>{const b=c.getBoundingClientRect();return[(e.clientX-b.left)*c.width/b.width,(e.clientY-b.top)*c.height/b.height]};
+ c.onpointerdown=e=>{on=true;c.setPointerCapture(e.pointerId);const[a,b]=p(e);x.beginPath();x.moveTo(a,b);x.lineTo(a+.1,b+.1);x.stroke();c.dataset.d=1};
+ c.onpointermove=e=>{if(!on)return;const[a,b]=p(e);x.lineTo(a,b);x.stroke()};c.onpointerup=()=>{on=false;draft()}});
+$$('[data-c]').forEach(b=>b.onclick=()=>{clr($('[data-s='+b.dataset.c+']'));draft()});
+let tm;document.addEventListener('input',()=>{clearTimeout(tm);tm=setTimeout(draft,600)});
+async function flush(){if(!cfg().url||!navigator.onLine)return;for(const x of all().filter(y=>y.want&&!y.sent)){if(await send(x))msg('Sent: '+x.t)}}
+addEventListener('online',flush);setTimeout(flush,3000);
+reset();try{const d=JSON.parse(localStorage.getItem('hg_comm_draft')||'null');if(d&&d.d){load(d.d);cur=d.cur;msg('Draft restored')}}catch(e){}
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script></body></html>
