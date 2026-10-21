@@ -31,7 +31,7 @@ th,td{border:1px solid #8a94a6;padding:0}td input{border:0;padding:11px 6px;min-
 @media(max-width:700px){.cols,.sg{grid-template-columns:1fr}#sheet{padding:16px}}
 @media print{.bar,.add,.clr,.cam,.ov,.noprint{display:none!important}body{background:#fff}#sheet{margin:0;max-width:none;padding:0}input,textarea{font-size:12px}}
 </style></head><body>
-<div class="bar noprint"><button id="be">Save &amp; Email</button><button class="s" id="bm">Scan devices</button><button class="g" id="bn">New</button><button class="g" id="bs">Save</button><button class="g" id="bl">Saved sheets</button><button class="g" id="bd">Download file</button><button class="g" id="bp">Print / PDF</button><button class="g" id="bt">Settings</button><span id="st"></span></div>
+<div class="bar noprint"><button id="be">Save &amp; Email</button><button class="s" id="bm">Scan devices</button><button class="s" id="bi">Import estimate</button><input type="file" id="bf" accept=".pdf,application/pdf" style="display:none"><button class="g" id="bn">New</button><button class="g" id="bs">Save</button><button class="g" id="bl">Saved sheets</button><button class="g" id="bd">Download file</button><button class="g" id="bp">Print / PDF</button><button class="g" id="bt">Settings</button><span id="st"></span></div>
 <div id="sheet">
 <div class="hd"><img class="lg" alt="HomeGenius" src="data:image/png;base64,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"></div>
 <h1>COMMISSIONING SHEET</h1>
@@ -134,6 +134,65 @@ function onCode(raw){const now=Date.now();if(raw===lastCode&&now-lastT<3000){las
  $('#stt').textContent='\u2713 '+sn+' \u2192 row '+tr.cells[0].textContent+(mode==='multi'?'  ('+cnt+' scanned)':'');
  if(mode==='one'){setTimeout(stopScan,500)}}
 $('#bm').onclick=()=>openScan('multi',null);$('#sdn').onclick=stopScan;$('#scx').onclick=stopScan;
+/* ===== Estimate import (PDF) ===== */
+const DEVN=[...$$('#devs option')].map(o=>o.value).sort((a,b)=>b.length-a.length);
+const rxE=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+const DEVRX=DEVN.map(n=>({n,re:new RegExp('(^|[^A-Za-z0-9])('+rxE(n).replace(/\s+/g,'\\s+')+')(?![A-Za-z0-9])','i')}));
+const numsIn=s=>(String(s).match(/\d[\d,]*(?:\.\d+)?/g)||[]).map(x=>parseFloat(x.replace(/,/g,'')));
+function qtyFrom(txt){const a=numsIn(txt);for(let i=a.length-3;i>=0;i--){const q=a[i],r=a[i+1],t=a[i+2];if(q>0&&q<=500&&Math.abs(q*r-t)<=Math.max(0.05,t*0.001))return Math.round(q)}return null}
+async function pdfLines(file){
+ const pdfjs=await import('./pdf.min.js');pdfjs.GlobalWorkerOptions.workerSrc=new URL('pdf.worker.min.js',location.href).href;
+ const doc=await pdfjs.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;const out=[];
+ for(let p=1;p<=doc.numPages;p++){const pg=await doc.getPage(p),tc=await pg.getTextContent();
+  const its=tc.items.filter(i=>i.str&&i.str.trim()).map(i=>({s:i.str,x:i.transform[4],y:i.transform[5],w:i.width||0}));
+  its.sort((a,b)=>b.y-a.y||a.x-b.x);const lines=[];
+  its.forEach(i=>{let l=lines.find(L=>Math.abs(L.y-i.y)<=3);if(!l){l={y:i.y,it:[]};lines.push(l)}l.it.push(i)});
+  lines.sort((a,b)=>b.y-a.y).forEach(l=>{l.it.sort((a,b)=>a.x-b.x);let t='',px=null;l.it.forEach(i=>{if(px!==null&&i.x-px>1)t+=' ';t+=i.s;px=i.x+i.w});out.push(t.replace(/\s+/g,' ').trim())})}
+ return out.filter(Boolean)}
+function parseEstimate(L){
+ let st=L.findIndex(t=>/(qty|quantity)/i.test(t)&&/(rate|price|amount|unit)/i.test(t));st=st<0?0:st+1;
+ let en=L.findIndex((t,i)=>i>=st&&/^(sub\s*total|total|tva|vat|balance|amount due|notes|terms)\b/i.test(t.trim()));if(en<0)en=L.length;
+ const head=L.slice(0,st>0?st:L.length),all=L.join('\n'),r={items:[]};
+ const em=all.match(/estimate\s*(?:no\.?|number|#|n\u00b0)\s*[:.]?\s*([A-Za-z0-9-]+)/i);r.no=em?em[1]:'';
+ const li=head.findIndex(t=>/^(prepared for|estimate for|bill(?:ed)? to|customer|client|to)\b/i.test(t.trim()));
+ r.name='';r.addr='';
+ if(li>=0){const rest=head[li].replace(/^(prepared for|estimate for|bill(?:ed)? to|customer|client|to)\b\s*:?\s*/i,'').trim();let k=li+1;r.name=rest||(head[k++]||'');
+  const ad=[];for(;k<head.length&&ad.length<4;k++){const t=head[k];if(/(estimate|date|no\.?:|phone|mobile|tel\b|email|e-mail|^#|product|qty|ship to|site)/i.test(t))break;ad.push(t)}r.addr=ad.join(', ')}
+ const sh=head.findIndex(t=>/^(ship to|site address|site|deliver to)\b/i.test(t.trim()));
+ if(sh>=0){const x=[];const first=head[sh].replace(/^(ship to|site address|site|deliver to)\b\s*:?\s*/i,'').trim();if(first)x.push(first);for(let k=sh+1;k<head.length&&x.length<3;k++){if(/(estimate|date|phone|mobile|tel\b|email|^#|product|qty)/i.test(head[k]))break;x.push(head[k])}r.site=x.join(', ')}
+ r.site=r.site||r.addr;
+ const ph=[...all.matchAll(/(?:phone|mobile|tel)[a-z.\s]*?(?:number|no\.?)?\s*:?\s*(\+?[\d][\d\s-]{6,})/gi)].map(m=>m[1].replace(/[^\d+]/g,'')).find(x=>!/57214111/.test(x));r.tel=ph||'';
+ const mails=(all.match(/[\w.+-]+@[\w-]+\.[\w.-]+/g)||[]).filter(x=>!/homegenius/i.test(x));r.email=mails[0]||'';
+ for(let i=st;i<en;i++){let t=L[i];const found=[];
+  DEVRX.forEach(d=>{let m;while((m=d.re.exec(t))){const idx=m.index+m[1].length,end=idx+m[2].length;found.push({n:d.n,idx,end});t=t.slice(0,idx)+'\u0000'.repeat(end-idx)+t.slice(end)}});
+  found.sort((a,b)=>a.idx-b.idx).forEach(f=>{const line=L[i];let q=qtyFrom(line.slice(f.end).replace(/\u0000/g,' '));if(q===null&&i>0)q=qtyFrom(L[i-1]);if(q===null&&i+1<en)q=qtyFrom(L[i+1]);if(q===null&&i+2<en)q=qtyFrom(L[i+1]+' '+L[i+2]);
+   r.items.push({n:f.n,q:q||1,sure:q!==null})})}
+ return r}
+function showImport(r,fname){let ov=$('#im');if(!ov){ov=document.createElement('div');ov.id='im';ov.className='ov';document.body.appendChild(ov)}
+ const E=s=>String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+ const fld=(id,l,v)=>'<p style="font-size:13px;margin:8px 0 2px"><b>'+l+'</b></p><input id="'+id+'" value="'+E(v)+'" style="border:1px solid #8a94a6;border-radius:6px">';
+ ov.innerHTML='<div class="box"><b style="font-size:18px">Import estimate'+(r.no?' '+E(r.no):'')+'</b><div style="font-size:12px;color:#6b7280">'+E(fname)+'</div>'+
+  fld('im_cn','Client name',r.name)+fld('im_sa','Site address',r.site)+fld('im_cp','Contact person',r.name)+fld('im_ct','Telephone',r.tel)+fld('im_ce','Email',r.email)+
+  '<p style="font-size:13px;margin:14px 0 4px"><b>Ajax devices found ('+r.items.length+' lines)</b> \u2013 untick to skip, edit name or quantity. Each unit gets its own row.</p><div id="imrows"></div>'+
+  (r.items.length?'':'<p style="color:#b45309;font-size:13px">No Ajax devices were recognised. Check this is a text PDF (not a photo) and that the lines use Ajax device names.</p>')+
+  '<p style="font-size:12px;color:#6b7280">Other lines (labour, cable, etc.) are ignored. Please check the details before importing.</p>'+
+  '<p><button class="clr" id="imok" style="background:#0f766e;color:#fff">Import</button> <button class="clr" id="imx">Cancel</button></p></div>';
+ const box=ov.querySelector('#imrows');
+ r.items.forEach(it=>{const d=document.createElement('div');d.className='imr';d.style.cssText='display:flex;gap:8px;align-items:center;margin:6px 0';
+  d.innerHTML='<input type="checkbox" class="imc" checked style="width:24px;height:24px;flex:none"><input class="imn" list="devs" style="border:1px solid #8a94a6;border-radius:6px"><input class="imq" type="number" min="1" style="width:70px;flex:none;border:1px solid #8a94a6;border-radius:6px">'+(it.sure?'':'<small style="color:#b45309;flex:none">qty?</small>');
+  d.querySelector('.imn').value=it.n;d.querySelector('.imq').value=it.q;box.appendChild(d)});
+ ov.classList.add('on');$('#imx').onclick=()=>ov.classList.remove('on');$('#imok').onclick=()=>{applyImport();ov.classList.remove('on')}}
+function applyImport(){const v=id=>$('#'+id).value.trim(),set=(k,x)=>{if(x)$('[data-k='+k+']').value=x};
+ const list=[];$$('#imrows .imr').forEach(r=>{if(!r.querySelector('.imc').checked)return;const n=r.querySelector('.imn').value.trim(),q=Math.max(1,Math.min(100,parseInt(r.querySelector('.imq').value)||1));if(n)for(let i=0;i<q;i++)list.push(n)});
+ const keep=rowsOf().filter(r=>r.some((x,i)=>i===3?x:String(x).trim()));
+ if(keep.length&&!confirm('This sheet already has '+keep.length+' row(s) with data. The imported devices will be added below them. Continue?'))return;
+ set('cn',v('im_cn'));set('sa',v('im_sa'));set('cp',v('im_cp')||v('im_cn'));set('ct',v('im_ct'));set('ce',v('im_ce'));
+ $('#eq').innerHTML='';keep.forEach(r=>addRow(r));list.forEach(n=>{addRow().querySelector('.it').value=n});
+ while($('#eq').rows.length<16)addRow();num();draft();msg(list.length+' device row(s) imported \u2713')}
+$('#bi').onclick=()=>$('#bf').click();
+$('#bf').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;msg('Reading estimate\u2026');
+ try{const L=await pdfLines(f);if(!L.length){alert('No readable text found. This looks like a scanned photo. Please use the PDF downloaded from QuickBooks.');return}showImport(parseEstimate(L),f.name);msg('')}
+ catch(err){alert('Could not read this PDF: '+err.message)}};
 /* ===== signatures, draft, offline ===== */
 $$('canvas').forEach(c=>{c.width=900;c.height=220;const x=c.getContext('2d');x.lineWidth=4;x.lineCap='round';x.strokeStyle='#111';let on=false;
  const p=e=>{const b=c.getBoundingClientRect();return[(e.clientX-b.left)*c.width/b.width,(e.clientY-b.top)*c.height/b.height]};
